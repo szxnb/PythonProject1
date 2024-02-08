@@ -14,9 +14,9 @@ def bmi_func(height, weight):
         print("Too fat")
         return bmi_index, 'Too fat'
 
-bmi_index1,condition1 = bmi_func(1.7, 50)
-bmi_index2,condition2 = bmi_func(1.0, 50)
-bmi_index3,condition3 = bmi_func(1.5, 50)
-print(f"{bmi_index1: .2f}",condition1)
-print(f"{bmi_index2: .2f}",condition2)
-print(f"{bmi_index3: .2f}",condition3)
+# bmi_index1,condition1 = bmi_func(1.7, 50)
+# bmi_index2,condition2 = bmi_func(1.0, 50)
+# bmi_index3,condition3 = bmi_func(1.5, 50)
+# print(f"{bmi_index1: .2f}",condition1)
+# print(f"{bmi_index2: .2f}",condition2)
+# print(f"{bmi_index3: .2f}",condition3)
