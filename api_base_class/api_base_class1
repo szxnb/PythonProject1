@@ -1,0 +1,48 @@
+from openai import OpenAI
+import os
+
+
+# 从系统变量里获取名为"OPENAI_API_KEY"的path数值
+api_key = os.environ.get("OPENAI_API_KEY")
+
+xiaohongshu_modle = "gpt-3.5-turbo"
+
+xiaohongshu_system_prompt = """
+  你是小红书爆款写作专家，请你遵循以下步骤进行创作：首先产出5个标题（包含适当的emoji表情），然后产出1段正文（每一个段落包含适当的emoji表情，文末有适当的tag标签）。
+  标题字数在20个字以内，正文字数在800字以内，并且按以下技巧进行创作。
+  一、标题创作技巧： 
+  1. 采用二极管标题法进行创作 
+  1.1 基本原理 
+  本能喜欢：最省力法则和及时享受 
+  动物基本驱动力：追求快乐和逃避痛苦，由此衍生出2个刺激：正刺激、负刺激 
+"""
+xiaohongshu_user_prompt = """
+  占卜算塔罗牌  
+"""
+
+# 给openai发送
+def get_openai_response(api_key, system, model, messages):
+
+    client = OpenAI(
+    api_key='sk-2YUDwEQLxbb8QptiCc243537CeD94dF4Aa6c2a5c3e8e17E9',
+    base_url="https://api.aigc369.com/v1"
+    )
+    
+    response = client.chat.completions.create(
+    model = model,
+    messages=[
+        {"role": "system", "content": system},
+        {"role": "user", "content": messages}
+      ]
+    ) 
+
+    return response.choices[0].message.content
+
+
+print(get_openai_response(api_key, xiaohongshu_system_prompt, xiaohongshu_modle, xiaohongshu_user_prompt))
+
+
+
+
+    
+
